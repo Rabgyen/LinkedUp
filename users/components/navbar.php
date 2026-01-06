@@ -1,7 +1,7 @@
 <navbar style="height: 100%; width: 100%">
     <div class="nav-items">
         <div class="logo">
-            <img src="../../images/linkedup-logo.png" alt="logo">
+            <a href="home.php"><img src="../../images/linkedup-logo.png" alt="logo"></a>
         </div>
         <div class="links-container">
             <input type="checkbox" id="sidebar-activate">
@@ -25,7 +25,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div class="profile">
-                    <img src="../../images/user.jpg" alt="profile image">
+                    <a href="../pages/profile.php"><img src="../../images/user.jpg" alt="profile image"></a>
                 </div>
             </div>
         </div>

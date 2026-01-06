@@ -9,7 +9,7 @@
                 <p>Software Developer</p>
                 <p><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</p>
                 <p>Software Engineer</p>
-                <a href="#"><p>Manage Profile</p><i class="fa-solid fa-arrow-right"></i></a>
+                <a href="../pages/profile.php"><p>Manage Profile</p><i class="fa-solid fa-arrow-right"></i></a>
             </span>
         </div>
     </div>

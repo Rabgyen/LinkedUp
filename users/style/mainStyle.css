@@ -5,7 +5,10 @@
 }
 
 :root{
+    --main-theme-color: #0773b6;
     --background-color: #eff1f5; 
+    --box-shadow: 0 0 15px #e6e6e6;
+    --description-text: 12px;
 }
 
 body{
@@ -13,6 +16,7 @@ body{
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
     width: 100%;
     background-color: var(--background-color);
     font-family: "Poppins", sans-serif;
@@ -103,7 +107,7 @@ navbar{
     width: 250px;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 0 15px #E6E6E6;
+    box-shadow: var(--box-shadow);
 }
 
 .search-container form{
@@ -142,11 +146,13 @@ navbar{
 }
 
 main{
-    height: 100vh;
+    height: calc(100vh - 60px);
     width: 80%;
     padding: 20px 0 0 0;
     display: flex;
+    justify-content: center;
     gap: 10px;
+    overflow: hidden;
 }
 
 
@@ -154,7 +160,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: 10px;
-    height: auto;
+    height: fit-content;
     width: 20%;
 }
 
@@ -168,7 +174,7 @@ main{
     display: flex;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 15px #E6E6E6;
+    box-shadow: var(--box-shadow);
 }
 
 .profile-info{
@@ -233,7 +239,7 @@ main{
     flex-direction: column;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 15px #E6E6E6;
+    box-shadow:var(--box-shadow);
     padding: 20px;
     gap: 10px;
 }
@@ -244,13 +250,14 @@ main{
     text-decoration: none;
 }
 
+/*post component*/
+
 .post-container-wrapper{
-    height: auto ;
+    height: 100%;
     width: 50%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 2px solid black;
     overflow-y: auto;
 }
 .share-post{
@@ -261,16 +268,16 @@ main{
     display: flex;
     align-items: center;
     padding: 0 30px;
-    box-shadow: 0 0 15px #E6E6E6;
+    box-shadow: var(--box-shadow);
 }
 
 .post-container{
     width: 100%;
     height: auto;
     background-color: white;
-    box-shadow: 0 0 15px #E6E6E6;
+    box-shadow: var(--box-shadow);
     border-radius: 15px;
-    border: 2px solid black;
+    padding-bottom: 10px;
 }
 
 .post-info{
@@ -349,6 +356,162 @@ main{
     max-height: 650px;
     object-fit: contain;
     border-radius: 0;
+}
+
+/*news-contact-container*/
+
+.news-contact-container{
+    width: 25%;
+    height: fit-content;
+}
+
+/* news component */
+
+.news-container-wrapper{
+    height: auto;
+    width: auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    padding: 15px;
+}
+
+.news-img{
+    height: 250px;
+    width: 100%;
+}
+
+.news-img img{
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+}
+
+.news-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.news-info p{
+    font-size: var(--description-text);
+}
+
+.news-info button{
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 8px;
+    background-color: var(--main-theme-color);
+    border: none;
+    color: white;
+}
+
+
+/* addContact component */
+.contact-container-wrapper{
+    height: auto;
+    width: auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.contact-users-list{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.contact-user{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    padding: 4px;
+}
+
+.contact-user span{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.contact-user span p:first-child{
+    font-weight: bold; 
+    font-size: 15px;
+}
+.contact-user span p:nth-child(2){
+    font-size: var(--description-text);
+    color: rgba(0, 0, 0, 0.804);
+}
+
+.contact-profile-img{
+    height: 40px;
+    width: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.contact-profile-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.contact-user a {
+    height: 30px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid var(--main-theme-color);
+    color: white;
+    font-size: var(--description-text);
+    background-color: var(--main-theme-color);
+}
+.see-more{
+    font-size: var(--description-text);
+    color: grey;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media(max-width:1320px){
+    .profile-card-container{
+        display: none;
+    }
+    .post-container-wrapper{
+        flex: 1;
+    }
+    .news-contact-container{
+        min-width: 250px;
+    }
+}
+
+@media(max-width:1130px){
+    .news-contact-container{
+        display: none;
+    }
 }
 
 @media(max-width:800px ){

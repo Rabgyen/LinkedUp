@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/mainStyle.css">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!---Google Fonts--->
@@ -23,6 +23,10 @@
         <main>
             <?php include '../components/profileCard.php'; ?>
             <?php include '../components/posts.php';?>
+            <div class="news-contact-container"> 
+                <?php include '../components/newsContent.php';?>
+                <?php include '../components/addContact.php';?>
+            </div>
         </main>
 </body>
 

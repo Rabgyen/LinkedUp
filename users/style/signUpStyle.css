@@ -1,0 +1,253 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-theme-color: #0773b6;
+  --background-color: #eff1f5;
+  --box-shadow: 0 0 15px #d6d6d6;
+  --description-text: 12px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
+  font-family: "Poppins", sans-serif;
+}
+
+.container-wrapper {
+  box-shadow: var(--box-shadow);
+  padding: 45px 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.container-wrapper p, a{
+    font-size: var(--description-text);
+}
+
+.container-wrapper p{
+    color: grey;
+}
+
+.logo {
+  height: 40px;
+  width: 40px;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+form label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.name-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-wrap: wrap;
+    min-width: 300px;
+}
+
+.name-container input {
+  padding: 8px 5px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  background-color: var(--background-color);
+}
+
+.email-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+}
+
+.email-container input {
+  padding: 8px 5px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  background-color: var(--background-color);
+}
+.dob-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+}
+
+.dob-container input {
+  padding: 8px 5px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  background-color: var(--background-color);
+}
+.ph-number-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+}
+
+.ph-number-container input {
+  padding: 8px 5px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  background-color: var(--background-color);
+}
+.country-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+}
+
+.country-container select {
+  padding: 8px 5px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  background-color: var(--background-color);
+}
+.role-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+}
+
+.role-container input {
+  padding: 8px 5px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  background-color: var(--background-color);
+}
+.password-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+}
+
+.password-container input {
+  padding: 8px 5px;
+  border: 1px solid rgba(128, 128, 128, 0.589);
+  outline: none;
+  background-color: var(--background-color);
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 100%;
+}
+
+.password-container i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.password-container #passwordToggle1 {
+  display: none;
+}
+
+.confirm-password-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 300px;
+}
+
+.confirm-password-container input {
+  padding: 8px 5px;
+  border: 1px solid rgba(128, 128, 128, 0.589);
+  outline: none;
+  background-color: var(--background-color);
+}
+
+.confirm-password-field {
+  position: relative;
+}
+
+.confirm-password-field input {
+  width: 100%;
+}
+
+.confirm-password-container i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.confirm-password-container #passwordToggle2 {
+  display: none;
+}
+
+.confirm {
+  display: flex;
+  gap: 15px;
+}
+
+.confirm button {
+  border: 1px solid rgba(128, 128, 128, 0.589);
+  flex: 1;
+  padding: 10px 0;
+  background-color: var(--background-color);
+  border-radius: 5px;
+}
+
+.confirm button:nth-child(2){
+  background-color: var(--main-theme-color);
+  color: white;
+}
+
+.container-wrapper span{
+    display: flex;
+    justify-content: center;
+}
+
+
+@media(max-width: 720px) {
+
+    body{
+        padding: 20px 0;
+    }
+
+    .container-wrapper{
+        padding: 20px;
+    }
+
+    form{
+        gap: 15px;
+    }
+}
