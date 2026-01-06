@@ -177,7 +177,7 @@ main{
     box-shadow: var(--box-shadow);
 }
 
-.profile-info{
+.profile-card-info{
     display: flex;
     padding: 40px 20px;
     height: 75%;
@@ -187,17 +187,17 @@ main{
     background-color: white;
 }
 
-.profile-info h2{
+.profile-card-info h2{
     margin-bottom: 8px;
 }
 
 
-.profile-info p {
+.profile-card-info p {
     font-size: 12px;
     margin-bottom: 6px;
 }
 
-.profile-info a{
+.profile-card-info a{
     display: flex;
     gap: 6px;
     margin-top: 15px;
@@ -206,15 +206,15 @@ main{
     transition: color 0.3s;
 }
 
-.profile-info i{
+.profile-card-info i{
     transition: 0.3s ease-in-out;
 }
 
-.profile-info a:hover i{
+.profile-card-info a:hover i{
     transform: translateX(10px);
 }
 
-.profile-img{
+.profile-card-img{
     height: 70px;
     width: 70px;
     border-radius: 100%;
@@ -224,7 +224,7 @@ main{
     left: 5%;
 }
 
-.profile-img img{
+.profile-card-img img{
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -252,9 +252,14 @@ main{
 
 /*post component*/
 
-.post-container-wrapper{
+.post-component-container{
     height: 100%;
     width: 50%;
+}
+
+.post-container-wrapper{
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -368,6 +373,9 @@ main{
 /* news component */
 
 .news-container-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
     height: auto;
     width: auto;
     background-color: white;
@@ -479,6 +487,8 @@ main{
     color: grey;
     text-decoration: none;
 }
+
+
 
 
 

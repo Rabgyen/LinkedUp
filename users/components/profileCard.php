@@ -1,7 +1,7 @@
 <div class="profile-card-container">
     <div class="profile-card">
-        <div class="profile-info">
-            <div class="profile-img">
+        <div class="profile-card-info">
+            <div class="profile-card-img">
                 <img src="../../images/user.jpg" alt="profile-img">
             </div>
             <span>

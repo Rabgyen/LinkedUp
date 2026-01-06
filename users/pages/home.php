@@ -22,7 +22,9 @@
     </header>
         <main>
             <?php include '../components/profileCard.php'; ?>
-            <?php include '../components/posts.php';?>
+            <div class="post-component-container">
+                <?php include '../components/posts.php';?>
+            </div>
             <div class="news-contact-container"> 
                 <?php include '../components/newsContent.php';?>
                 <?php include '../components/addContact.php';?>

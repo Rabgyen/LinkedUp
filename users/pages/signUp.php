@@ -16,12 +16,12 @@
 
 <body>
     <div class="container-wrapper">
-        <div>
+        <div class="heading">
             <div class="logo">
-            <img src="../../images/up-logo.png" alt="logo">
-        </div>
+                <img src="../../images/up-logo.png" alt="logo">
+            </div>
             <h1>Sign Up</h1>
-        <p>Enter your details below to create your account and get started.</p>
+            <p>Enter your details below to create your account and get started.</p>
         </div>
 
         <form action="" method="post">
@@ -132,7 +132,9 @@
                 <button type="submit">Submit</button>
             </div>
         </form>
-        <span><p>Already have an account?</p><a href="#">Login</a></span>
+        <span>
+            <p>Already have an account? </p> <a href="./login.php">Login</a>
+        </span>
     </div>
 </body>
 <script>

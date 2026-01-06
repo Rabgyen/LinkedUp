@@ -30,6 +30,11 @@ body {
   gap: 25px;
 }
 
+.heading h1{
+  font-weight: 600;
+  margin-top: 10px;
+}
+
 .container-wrapper p, a{
     font-size: var(--description-text);
 }

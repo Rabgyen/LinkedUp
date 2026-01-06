@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-theme-color: #0773b6;
+  --background-color: #eff1f5;
+  --box-shadow: 0 0 15px #d6d6d6;
+  --description-text: 14px;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background-color);
+  font-family: "Poppins", sans-serif;
+}
+
+.container-wrapper {
+  box-shadow: var(--box-shadow);
+  padding: 45px 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading h1{
+    font-weight: 600;
+}
+
+.container-wrapper .heading .logo{
+    height: 80px;
+    width: 80px;
+} 
+
+.logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+  padding: 8px 5px;
+  border: 2px solid #e6e6e6;
+  outline: none;
+  background-color: var(--background-color);
+  min-width: 380px;
+}
+
+.container-wrapper h1{
+    text-align: center;
+}
+
+.container-wrapper p{
+    font-size: var(--description-text);
+    color: grey;
+    text-align: center;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  width: 100%;
+}
+
+.password-field i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+
+.password-field #passwordToggle1 {
+  display: none;
+}
+
+form label{
+    font-size: 14px;
+    margin: 25px 0 10px 0;
+}
+
+button {
+    border: none;
+  flex: 1;
+  padding: 10px 0;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  margin-top: 30px;
+  background-color: var(--main-theme-color);
+  color: white;
+}
+
+.container-wrapper #signUp{
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+    font-size: 12px ;
+}
+
