@@ -1,3 +1,42 @@
+<?php
+
+include '../../database/db_connection.php';
+
+$emailError = '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $fullName = $_POST['fullName'] ?? '';
+    $fullName = trim($fullName);
+    $fullName = ucwords(strtolower($fullName));
+
+    $email = $_POST['email'] ?? '';
+    $dob = $_POST['dateOfBirth'] ?? '';
+    $phNumber = $_POST['phNumber'] ?? '';
+    $country = $_POST['nationality'] ?? '';
+    $interest = $_POST['interest'] ?? '';
+    $password = $_POST['password'] ?? '';
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    $checkEmailSql = "SELECT * FROM user_credentials WHERE email = '$email'";
+    $resultCheckEmail = mysqli_query($conn, $checkEmailSql);
+
+    $emailError = (mysqli_num_rows($resultCheckEmail)) ? "*Email already exits*" : "";
+
+    if (!$emailError) {
+        $insertSql = "INSERT INTO user_credentials (full_name, email, dob, phone_number, country, interest, password_hash) VALUES ('$fullName', '$email', '$dob', '$phNumber', '$country', '$interest', '$hashedPassword')";
+
+        if (mysqli_query($conn, $insertSql)) {
+            header("Location: login.php");
+            exit();
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +63,7 @@
             <p>Enter your details below to create your account and get started.</p>
         </div>
 
-        <form action="" method="post">
+        <form action="" method="post" id="signUpForm">
 
             <div class="container">
                 <div class="name-container">
@@ -33,7 +72,8 @@
                 </div>
                 <div class="email-container">
                     <label for="email">Email: </label>
-                    <input type="email" id="email" name="email" placeholder="email" required>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+                    <?php echo $emailError ? "<p style='color: red;'> $emailError </p>" : "" ?>
                 </div>
             </div>
 
@@ -96,37 +136,39 @@
                 </div>
 
                 <div class="role-container">
-                    <label for="role">Role/Intererst: </label>
-                    <input type="text" name="role" id="name" placeholder="Role/Interest" required>
+                    <label for="interest">Role/Intererst: </label>
+                    <input type="text" name="interest" id="interest" placeholder="Role/Interest" required>
                 </div>
 
             </div>
 
-            <div class="container">
-                <div class="password-container">
-                    <label for="password">Password: </label>
-                    <div class="password-field">
-                        <input type="password" name="password" id="password" placeholder="passowrd" required>
-                        <input type="checkbox" id="passwordToggle1">
-                        <label for="passwordToggle1">
-                            <i class="fa-solid fa-lock"></i>
-                        </label>
+            <div class="pass-confirm-container">
+                <div class="pass-container">
+                    <div class="password-container">
+                        <label for="password">Password: </label>
+                        <div class="password-field">
+                            <input type="password" name="password" id="password" placeholder="passowrd" required>
+                            <input type="checkbox" id="passwordToggle1">
+                            <label for="passwordToggle1">
+                                <i class="fa-solid fa-lock"></i>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="confirm-password-container">
+                        <label for="confirmPassword">Password: </label>
+                        <div class="confirm-password-field">
+                            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="confirm password" required>
+                            <input type="checkbox" id="passwordToggle2">
+                            <label for="passwordToggle2">
+                                <i class="fa-solid fa-lock"></i>
+                            </label>
+                        </div>
                     </div>
                 </div>
-
-                <div class="confirm-password-container">
-                    <label for="confirmPassword">Password: </label>
-                    <div class="confirm-password-field">
-                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="confirm password" required>
-                        <input type="checkbox" id="passwordToggle2">
-                        <label for="passwordToggle2">
-                            <i class="fa-solid fa-lock"></i>
-                        </label>
-                    </div>
-                </div>
-
-
+                <p id="passwordError"></p>
             </div>
+
             <div class="confirm">
                 <button>Cancel</button>
                 <button type="submit">Submit</button>
@@ -163,6 +205,19 @@
             passwordIcon2.className = checked ? 'fa-solid fa-lock-open' : 'fa-solid fa-lock';
         }
     });
+
+    const form = document.getElementById("signUpForm");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const passwordError = document.getElementById('passwordError');
+
+    form.addEventListener('submit', (e) => {
+        if (password.value !== confirmPassword.value) {
+            e.preventDefault();
+            passwordError.innerHTML = "*Password does not match*";
+            confirmPassword.focus();
+        }
+    })
 </script>
 
 </html>

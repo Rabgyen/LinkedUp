@@ -152,6 +152,14 @@ form label {
   outline: none;
   background-color: var(--background-color);
 }
+
+/*password*/
+
+.pass-container{
+  display: flex;
+  gap: 15px;
+}
+
 .password-container {
   display: flex;
   flex-direction: column;
@@ -161,7 +169,7 @@ form label {
 
 .password-container input {
   padding: 8px 5px;
-  border: 1px solid rgba(128, 128, 128, 0.589);
+  border: 2px solid #e6e6e6;
   outline: none;
   background-color: var(--background-color);
 }
@@ -194,7 +202,7 @@ form label {
 
 .confirm-password-container input {
   padding: 8px 5px;
-  border: 1px solid rgba(128, 128, 128, 0.589);
+  border: 2px solid #e6e6e6;
   outline: none;
   background-color: var(--background-color);
 }
@@ -218,13 +226,20 @@ form label {
   display: none;
 }
 
+.pass-confirm-container #passwordError{
+  color: red;
+  margin-top: 10px;
+}
+
+/*button*/
+
 .confirm {
   display: flex;
   gap: 15px;
 }
 
 .confirm button {
-  border: 1px solid rgba(128, 128, 128, 0.589);
+  border: 2px solid #e6e6e6;
   flex: 1;
   padding: 10px 0;
   background-color: var(--background-color);

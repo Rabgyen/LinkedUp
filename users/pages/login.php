@@ -1,3 +1,52 @@
+<?php
+
+    session_start();
+    include '../../database/db_connection.php';
+
+    $emailNotFound = '';
+    $passwordError = '';
+
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $sql = "SELECT * FROM user_credentials WHERE email = '$email'";
+        $result = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($result) == 1){
+            $rows = mysqli_fetch_assoc($result);
+            $hashedPassword = $rows['password_hash'];
+
+            if(password_verify($password, $hashedPassword)){
+                $_SESSION['id'] = $rows['id'] ?? "N/A";
+                $_SESSION['full_name'] = $rows['full_name'] ?? "N/A";
+                $_SESSION['email'] = $rows['email'] ?? "N/A";
+                $_SESSION['dob'] = $rows['dob'] ?? "N/A";
+                $_SESSION['phone_number'] = $rows['phone_number'] ?? "N/A";
+                $_SESSION['country'] = $rows['country'] ?? "N/A";
+                $_SESSION['city'] = $rows['city'] ?? "N/A";
+                $_SESSION['address'] = $rows['address'] ?? "N/A";
+                $_SESSION['interest'] = $rows['interest'] ?? "N/A";
+                $_SESSION['created_at'] = $rows['created_at'] ?? "N/A";
+                $_SESSION['updated_at'] = $rows['updated_at'] ?? "N/A";
+
+
+                header("Location: home.php");
+                exit();
+            }else{
+                $passwordError = "<p style='color:red; font-size: 12px;'>Invalid Password</p>";
+            }
+        }else{
+            $emailNotFound = "<p style='color:red; font-size: 12px;'>Invalid Email</p>";
+        }
+
+    }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,15 +74,21 @@
         </div>
         <form action="" method="post">
             <label for="email">Email: </label>
-            <input type="email" name="email" id="email" placeholder="enter email..." required>
+            <span>
+                <input type="email" name="email" id="email" placeholder="enter email..." required>
+                <?php echo ($emailNotFound) ? $emailNotFound : ""; ?>
+            </span>
             <label for="password">Password:</label>
-            <div class="password-field">
+            <span>
+                <div class="password-field">
                 <input type="password" name="password" id="password" placeholder="enter password..." required>
                 <input type="checkbox" id="passwordToggle1">
                 <label for="passwordToggle1">
                     <i class="fa-solid fa-lock"></i>
                 </label>
             </div>
+            <?php echo ($passwordError) ? $passwordError : ""; ?>
+            </span>
             <button type="submit">Login</button>
         </form>
         <span id="signUp">

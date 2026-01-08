@@ -22,9 +22,9 @@ body{
 .profile-user-container{
     height: 100%;
     width: 90%;
-    border: 2px solid black;
     border-radius: 10px;
     overflow: hidden;
+    border: 1px solid #b9b9b9;
 }
 
 .profile-user-pictures{
@@ -65,8 +65,9 @@ body{
 
 .profile-user-info{
     display: flex;
-    padding: 45px;
+    padding: 35px;
     justify-content: space-between;
+    border: 2px solid black;
 }
 
 .profile-user-info a{
@@ -75,7 +76,7 @@ body{
     align-items: center;
     height: 40px;
     width: 125px;
-    border: 1px solid #555555;
+    border: 1px solid #b9b9b9;
     text-decoration: none;
     color: grey;
     font-size: 14px;

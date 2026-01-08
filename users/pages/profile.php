@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+// if (!isset($_SESSION["email"])) {
+//     header("Location: access_denied.php");
+//     exit;
+// }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,10 +43,10 @@
             </div>
             <div class="profile-user-info">
                 <span style="display: flex; flex-direction: column; gap: 8px;">
-                    <p class="profile-user-name">User Name</p>
+                    <p class="profile-user-name"><?php echo $_SESSION['full_name'] ?></p>
                     <span style="display: flex; align-items: center; gap:5px;">
                         <i class="fa-regular fa-calendar"></i>
-                        <p style="color: grey;">Started Date: 1 Jan 2026</p>
+                        <p style="color: grey;font-size: 14px;">Started Date: <?php echo date('d M Y', strtotime($_SESSION['created_at'])); ?></p>
                     </span>
                 </span>
                 <a href="#"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a>
