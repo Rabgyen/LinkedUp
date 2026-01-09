@@ -1,0 +1,90 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --main-theme-color: #0773b6;
+    --background-color: #eff1f5; 
+    --box-shadow: 0 0 15px #e6e6e6;
+    --description-text: 12px;
+    --border: 2px solid black;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--background-color);
+    font-family: "Poppins", sans-serif;
+}
+
+main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.lock{
+    height: 130px;
+    width: 130px;
+    border: 4px solid var(--main-theme-color);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 54px;
+    color: var(--main-theme-color);
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+a{
+    text-decoration: none;
+    color: var(--main-theme-color);
+}
+
+.links{
+    display: flex;
+    gap: 15px;
+}
+
+.link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 200px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s all ease-in-out;
+    color: black;
+}
+
+.login{
+    background-color: var(--main-theme-color);
+    color: white;
+}
+
+.sign-up{
+    border: 1px solid var(--main-theme-color);
+}

@@ -18,7 +18,6 @@
                 <p class="post-description">
                     A UI/UX Designer dedicated to crafting meaningful digital experiences through thoughtful research, intuitive design, and user-focused problem solving. I translate complex ideas into clean interfaces, smooth interactions, and visually engaging layouts that help products feel effortless and enjoyable to use. Passionate about improving usability, consistency, and overall user satisfaction in every project.
                 </p>
-                <span class="see-more-btn">See More</span>
             </div>
         </div>
         <div class="post-img">
@@ -41,7 +40,6 @@
                 <p class="post-description">
                     A UI/UX Designer dedicated to crafting meaningful digital experiences through thoughtful research, intuitive design, and user-focused problem solving. I translate complex ideas into clean interfaces, smooth interactions, and visually engaging layouts that help products feel effortless and enjoyable to use. Passionate about improving usability, consistency, and overall user satisfaction in every project.
                 </p>
-                <span class="see-more-btn">See More</span>
             </div>
         </div>
         <div class="post-img">
@@ -64,7 +62,6 @@
                 <p class="post-description">
                     A UI/UX Designer dedicated to crafting meaningful digital experiences through thoughtful research, intuitive design, and user-focused problem solving. I translate complex ideas into clean interfaces, smooth interactions, and visually engaging layouts that help products feel effortless and enjoyable to use. Passionate about improving usability, consistency, and overall user satisfaction in every project.
                 </p>
-                <span class="see-more-btn">See More</span>
             </div>
         </div>
         <div class="post-img">
@@ -87,7 +84,6 @@
                 <p class="post-description">
                     A UI/UX Designer dedicated to crafting meaningful digital experiences through thoughtful research, intuitive design, and user-focused problem solving. I translate complex ideas into clean interfaces, smooth interactions, and visually engaging layouts that help products feel effortless and enjoyable to use. Passionate about improving usability, consistency, and overall user satisfaction in every project.
                 </p>
-                <span class="see-more-btn">See More</span>
             </div>
         </div>
         <div class="post-img">

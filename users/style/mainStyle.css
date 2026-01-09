@@ -332,9 +332,9 @@ main{
 
 .post-description{
     font-size: 12px;
-    max-height: 50px;
     overflow: hidden;
     transition: max-height 0.3s ease;
+    margin-bottom: 5px;
 }
 .post-description-container.expanded .post-description{
     max-height: 500px ;
@@ -361,11 +361,14 @@ main{
 /*news-contact-container*/
 
 .news-contact-container{
-    width: 25%;
-    height: fit-content;
+    overflow-y: scroll;
 }
 
 /* news component */
+
+.news-contact-container{
+        min-width: 350px;
+    }
 
 .news-container-wrapper{
     display: flex;
@@ -508,8 +511,11 @@ main{
     .post-container-wrapper{
         flex: 1;
     }
-    .news-contact-container{
-        min-width: 250px;
+    .post-component-container{
+        flex: 1;
+    }
+    .post-container{
+        width: 100%;
     }
 }
 
@@ -571,7 +577,7 @@ main{
         width: 100%;;
     }
     main{
-        width: 100%;
+        width: 100% !important;
         padding: 0 20px;
     }
 }

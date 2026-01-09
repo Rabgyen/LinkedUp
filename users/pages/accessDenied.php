@@ -1,14 +1,3 @@
-<?php
-
-session_start();
-include '../../database/db_connection.php';
-if (!isset($_SESSION["email"])) {
-    header("Location: accessDenied.php");
-    exit;
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +5,7 @@ if (!isset($_SESSION["email"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../style/mainStyle.css">
+    <link rel="stylesheet" href="../style/accessDeniedStyle.css">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!---Google Fonts--->
@@ -26,19 +15,20 @@ if (!isset($_SESSION["email"])) {
 </head>
 
 <body>
-    <header>
-        <?php
-        include '../components/navbar.php';
-        ?>
-    </header>
     <main>
-        <?php include '../components/profileCard.php'; ?>
-        <div class="post-component-container">
-            <?php include '../components/posts.php'; ?>
-        </div>
-        <div class="news-contact-container">
-            <?php include '../components/newsContent.php'; ?>
-            <?php include '../components/addContact.php'; ?>
+        <div class="container">
+            <div class="lock">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <span class="desc">
+                <p style="font-size: 22px; font-weight: bold">Access Denied</p>
+                <p>Sorry, but you don't have permission to access the page without loging in.</p>
+                <p>You can go back to <a href="login.php">Login.</a></p>
+            </span>
+            <span class="links">
+                <a href="signUp.php" class="sign-up link">Sign Up</a>
+                <a href="login.php" class="login link">Login</a>
+            </span>
         </div>
     </main>
 </body>

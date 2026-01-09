@@ -11,7 +11,7 @@
                 <img src="../../images/user.jpg" alt="profile-img">
             </div>
             <span>
-                <h2><?php echo $_SESSION['full_name'] ?></h2>
+                <p style="font-size: 20px; font-weight: bold;"><?php echo $_SESSION['full_name'] ?></p>
                 <p><?php echo $_SESSION['interest'] ?></p>
                 <p><i class="fa-solid fa-location-dot"></i> Kathmandu, Nepal</p>
                 <p>Software Engineer</p>
