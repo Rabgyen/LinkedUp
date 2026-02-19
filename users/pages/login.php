@@ -11,25 +11,31 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM user_credentials WHERE email = '$email'";
-        $result = mysqli_query($conn, $sql);
+        $credentialSql = "SELECT * FROM user_credentials WHERE email = '$email'";
+        $credentialResult = mysqli_query($conn, $credentialSql);
 
-        if(mysqli_num_rows($result) == 1){
-            $rows = mysqli_fetch_assoc($result);
-            $hashedPassword = $rows['password_hash'];
+        if(mysqli_num_rows($credentialResult) == 1){
+            $credential_rows = mysqli_fetch_assoc($credentialResult);
+            $hashedPassword = $credential_rows['password_hash'];
+            $userid = $credential_rows['id'];
+            
+            $infoSql = "SELECT * FROM user_info WHERE user_id = '$userid'";
+            $infoResult = mysqli_query($conn, $infoSql);
+            $info_rows = mysqli_fetch_assoc($infoResult);
 
             if(password_verify($password, $hashedPassword)){
-                $_SESSION['id'] = $rows['id'] ?? "N/A";
-                $_SESSION['full_name'] = $rows['full_name'] ?? "N/A";
-                $_SESSION['email'] = $rows['email'] ?? "N/A";
-                $_SESSION['dob'] = $rows['dob'] ?? "N/A";
-                $_SESSION['phone_number'] = $rows['phone_number'] ?? "N/A";
-                $_SESSION['country'] = $rows['country'] ?? "N/A";
-                $_SESSION['city'] = $rows['city'] ?? "N/A";
-                $_SESSION['address'] = $rows['address'] ?? "N/A";
-                $_SESSION['interest'] = $rows['interest'] ?? "N/A";
-                $_SESSION['created_at'] = $rows['created_at'] ?? "N/A";
-                $_SESSION['updated_at'] = $rows['updated_at'] ?? "N/A";
+                session_regenerate_id(true);
+                $_SESSION['id'] = $credential_rows['id'] ?? "N/A";
+                $_SESSION['full_name'] = $info_rows['full_name'] ?? "N/A";
+                $_SESSION['email'] = $credential_rows['email'] ?? "N/A";
+                $_SESSION['dob'] = $info_rows['date_of_birth'] ?? "N/A";
+                $_SESSION['phone_number'] = $info_rows['phone_number'] ?? "N/A";
+                $_SESSION['country'] = $info_rows['country'] ?? "N/A";
+                $_SESSION['city'] = $info_rows['city'] ?? "N/A";
+                $_SESSION['address'] = $info_rows['address'] ?? "N/A";
+                $_SESSION['interest'] = $info_rows['interests'] ?? "N/A";
+                $_SESSION['created_at'] = $credential_rows['created_at'] ?? "N/A";
+                $_SESSION['updated_at'] = $info_rows['updated_at'] ?? "N/A";
 
 
                 header("Location: home.php");

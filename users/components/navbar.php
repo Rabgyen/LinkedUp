@@ -12,10 +12,10 @@
                 <label for="sidebar-activate" class="sidebar-close">
                     <i class="fa-solid fa-x"></i>
                 </label>
-                <a href="#"><i class="fa-solid fa-house"></i></a>
+                <a href="home.php"><i class="fa-solid fa-house"></i></a>
                 <a href="#"><i class="fa-solid fa-suitcase"></i></a>
                 <a href="#"><i class="fa-solid fa-bell"></i></a>
-                <a href="#" id="user"><i class="fa-solid fa-user"></i></a>
+                <a href="profile.php" id="user"><i class="fa-solid fa-user"></i></a>
             </div>
             <div class="search-container-wrapper">
                 <div class="search-container">

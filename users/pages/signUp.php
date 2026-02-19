@@ -24,11 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $emailError = (mysqli_num_rows($resultCheckEmail)) ? "*Email already exits*" : "";
 
     if (!$emailError) {
-        $insertSql = "INSERT INTO user_credentials (full_name, email, dob, phone_number, country, interest, password_hash) VALUES ('$fullName', '$email', '$dob', '$phNumber', '$country', '$interest', '$hashedPassword')";
+        $insertCredentialSql = "INSERT INTO user_credentials (email,password_hash) VALUES ('$email','$hashedPassword')";
 
-        if (mysqli_query($conn, $insertSql)) {
-            header("Location: login.php");
-            exit();
+        if (mysqli_query($conn, $insertCredentialSql)) {
+            $user_id = mysqli_insert_id($conn);
+            $insertInfoSql = "INSERT INTO user_info (user_id,full_name, date_of_birth, country, phone_number, interests) VALUES ('$user_id','$fullName','$dob', '$country', '$phNumber', '$interest')";
+
+            if (mysqli_query($conn, $insertInfoSql)) {
+                header("Location: login.php");
+                exit();
+            }
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -95,43 +100,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <select name="nationality" id="nationality">
                         <option value="">-- Select Country --</option>
 
-                        <option value="AF">Afghanistan</option>
-                        <option value="AL">Albania</option>
-                        <option value="DZ">Algeria</option>
-                        <option value="AR">Argentina</option>
-                        <option value="AU">Australia</option>
-                        <option value="AT">Austria</option>
-                        <option value="BD">Bangladesh</option>
-                        <option value="BE">Belgium</option>
-                        <option value="BR">Brazil</option>
-                        <option value="CA">Canada</option>
-                        <option value="CN">China</option>
-                        <option value="DK">Denmark</option>
-                        <option value="FI">Finland</option>
-                        <option value="FR">France</option>
-                        <option value="DE">Germany</option>
-                        <option value="IN">India</option>
-                        <option value="ID">Indonesia</option>
-                        <option value="IT">Italy</option>
-                        <option value="JP">Japan</option>
-                        <option value="MY">Malaysia</option>
-                        <option value="NP">Nepal</option>
-                        <option value="NL">Netherlands</option>
-                        <option value="NO">Norway</option>
-                        <option value="PK">Pakistan</option>
-                        <option value="PH"> Philippines</option>
-                        <option value="RU">Russia</option>
-                        <option value="SA">Saudi Arabia</option>
-                        <option value="KR">South Korea</option>
-                        <option value="ES">Spain</option>
-                        <option value="SE">Sweden</option>
-                        <option value="CH">Switzerland</option>
-                        <option value="TH">Thailand</option>
-                        <option value="TR">Turkey</option>
-                        <option value="AE">United Arab Emirates</option>
-                        <option value="GB">United Kingdom</option>
-                        <option value="US">United States</option>
-                        <option value="VN">Vietnam</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Canada">Canada</option>
+                        <option value="China">China</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="India">India</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Netherlands">Netherlands</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Philippines">Philippines</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="United Arab Emirates">United Arab Emirates</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="United States">United States</option>
+                        <option value="Vietnam">Vietnam</option>
+
                     </select>
                 </div>
 

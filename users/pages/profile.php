@@ -64,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <p>Started Date: <?php echo date('d M Y', strtotime($_SESSION['created_at'])); ?></p>
                     </span>
                 </span>
-                <a href="#" class="log-out-btn edit-btn" id="log-out-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
+                <a href="logout.php" class="log-out-btn edit-btn" id="log-out-btn"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a>
             </div>
             <div class="profile-detail-container-wrapper">
                 <div class="profile-detail-header">
@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <p>Updated Date: <?php echo date('d M Y', strtotime($_SESSION['updated_at'])); ?></p>
                         </span>
                     </span>
-                    <span style="display: flex; gap: 10px"> <a href="#" class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a>
+                    <span style="display: flex; gap: 10px"> <a href="edit.php" class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a>
                 <a href="#" class="delete-btn edit-btn" id="delete-btn"><i class="fa-solid fa-trash"></i> Delete Profile</a></span>
                 </div>
                 <div class="profile-detail-container">
