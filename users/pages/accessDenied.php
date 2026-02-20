@@ -22,7 +22,7 @@
             </div>
             <span class="desc">
                 <p style="font-size: 22px; font-weight: bold">Access Denied</p>
-                <p>Sorry, but you don't have permission to access the page without loging in.</p>
+                <p>Sorry, but you don't have permission to access the page without loging in or the page does not exist.</p>
                 <p>You can go back to <a href="login.php">Login.</a></p>
             </span>
             <span class="links">
