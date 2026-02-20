@@ -57,7 +57,7 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'editprofile';
     <header>
         <nav>
             <div>
-                <a href="#">
+                <a href="profile.php">
                     <i class="fa-solid fa-arrow-left-long"></i>
                     Back to home
                 </a>

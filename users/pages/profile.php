@@ -75,7 +75,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             <p>Updated Date: <?php echo date('d M Y', strtotime($_SESSION['updated_at'])); ?></p>
                         </span>
                     </span>
-                    <span style="display: flex; gap: 10px"> <a href="edit.php" class="btn edit-btn"><i class="fa-solid fa-gear"></i>Edit Profile</a>
+                    <span style="display: flex; gap: 10px"> <a href="edit.php?page=editprofile" class="btn edit-btn"><i class="fa-solid fa-gear"></i>Edit Profile</a>
                 </span>
                 </div>
                 <div class="profile-detail-container">

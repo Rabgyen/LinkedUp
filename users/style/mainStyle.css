@@ -581,3 +581,9 @@ main{
         padding: 0 20px;
     }
 }
+
+@media(max-width:490px){
+    .logo{
+        width: 30px;
+    }
+}

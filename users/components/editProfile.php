@@ -4,7 +4,7 @@
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $full_name = $_POST['full_name'];
-        
+
     }
 
 ?>
@@ -17,7 +17,7 @@
         <span>
             <button type="button" id="upload-img-btn"><i class="fa-solid fa-plus"></i> Change Image</button>
             <button type="button" id="remove-img-btn">Remove Image</button>
-            <input type="file" id="realInput" accept="image/*" hidden>
+            <input type="file" id="img-input" accept="image/*" hidden>
             <p>Change your picture anytime you like!</p>
         </span>
     </div>
@@ -44,4 +44,12 @@
     bio.addEventListener("input", function() {
         count.textContent = bio.value.length;
     });
+
+    const uploadImgBtn = document.getElementById('upload-img-btn');
+    const imgInput = document.getElementById('img-input');
+
+    uploadImgBtn.addEventListener('click', () => {
+        imgInput.click();
+    })
+
 </script>

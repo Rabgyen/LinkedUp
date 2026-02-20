@@ -1,7 +1,12 @@
 <navbar style="height: 100%; width: 100%">
     <div class="nav-items">
         <div class="logo">
-            <a href="home.php"><img src="../../images/linkedup-logo.png" alt="logo"></a>
+            <a href="home.php">
+                <picture>
+                    <source media="(max-width: 480px)" srcset="../../images/up-logo.png">
+                    <img src="../../images/linkedup-logo.png" alt="logo">
+                </picture>
+            </a>
         </div>
         <div class="links-container">
             <input type="checkbox" id="sidebar-activate">
