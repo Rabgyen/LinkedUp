@@ -192,6 +192,12 @@ main{
     margin-bottom: 6px;
 }
 
+#bio-text{
+    max-width:235px;
+    max-height: 40px;
+    overflow: hidden;
+}
+
 .profile-card-info a{
     display: flex;
     gap: 6px;

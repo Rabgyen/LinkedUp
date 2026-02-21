@@ -73,17 +73,17 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'editprofile';
     <main>
         <div class="edit-container">
             <div class="edit-nav">
-                <a href="edit.php?page=editprofile"
+                <a href="edit.php?page=editprofile&id=<?php echo isset($_SESSION['id']) ? $_SESSION['id'] : '' ?>"
                     class="edit-page <?= ($currentPage == 'editprofile') ? 'active' : '' ?>">
                     Edit Profile
                 </a>
 
-                <a href="edit.php?page=changepassword"
+                <a href="edit.php?page=changepassword&id=<?php echo isset($_SESSION['id']) ? $_SESSION['id'] : '' ?>"
                     class="edit-page <?= ($currentPage == 'changepassword') ? 'active' : '' ?>">
                     Change Password
                 </a>
 
-                <a href="edit.php?page=editdetail"
+                <a href="edit.php?page=editdetail&id=<?php echo isset($_SESSION['id']) ? $_SESSION['id'] : '' ?>"
                     class="edit-page <?= ($currentPage == 'editdetail') ? 'active' : '' ?>">
                     Edit Details
                 </a>

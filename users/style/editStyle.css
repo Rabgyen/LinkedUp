@@ -9,6 +9,9 @@
     --background-color: #eff1f5; 
     --box-shadow: 0 0 15px #e6e6e6;
     --description-text: 12px;
+    --light-border: 1px solid #ccc;
+    --sub-text-color: rgba(0, 0, 0, 0.6);
+    --sub-text-font: 0.875rem;
 }
 
 body{
@@ -87,7 +90,13 @@ main{
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 80%;
+    width: 70%;
+}
+
+.edit-profile-container{
+    border: var(--light-border);
+    padding: 20px;
+    box-shadow: var(--box-shadow);
 }
 
 .editProfile img{
@@ -127,14 +136,19 @@ main{
 label{
     font-size: 14px;
     font-weight: 600;
+    margin: 10px 0;
+    display: block;
 }
 
-.edit-profile-name input{
-    border: 1px solid black;
+input{
+    border: none;
     height: 100%;
     width: 100%;
     background: transparent;
     padding: 0 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    outline: none;
 }
 
 .input-field{
@@ -173,4 +187,86 @@ textarea{
     border: none;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+.success-text{
+    padding: 4px 10px;
+    background-color: #CAE8BD;
+    color: green;
+    font-size: 12px;
+    display: inline-flex;
+    margin-top: 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+}
+.fail-text{
+    padding: 4px 10px;
+    background-color: #FFA6A6;
+    color: red;
+    font-size: 12px;
+    display: inline-flex;
+    margin-top: 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: 4px;
+}
+
+.change-password-container-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 70%;
+}
+
+.change-password-container{
+    display: flex;
+    border: 1px solid #ccc;
+    box-shadow: var(--box-shadow);
+}
+
+.security-img{
+    height: 600px;
+    width: 330px;
+}
+
+.security-img img{
+    height: 100%;
+    width: 100%;
+}
+
+.change-password-field{
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.password-input{
+    height: 40px;
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.password-input input{
+    padding: 0 10px;
+}
+
+.change-password-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+    color: #666;
+}
+
+.change-password-field p{
+    font-size: var(--sub-text-font);
+    color: var(--sub-text-color);
 }

@@ -36,6 +36,7 @@
                 $_SESSION['interest'] = $info_rows['interests'] ?? "N/A";
                 $_SESSION['created_at'] = $credential_rows['created_at'] ?? "N/A";
                 $_SESSION['updated_at'] = $info_rows['updated_at'] ?? "N/A";
+                $_SESSION['bio'] = $info_rows['bio'] ?? '';
 
 
                 header("Location: home.php");
