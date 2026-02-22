@@ -1,6 +1,6 @@
 <?php
 
-$id = $_GET['id'];
+$id = $_GET['id'] ?? $_SESSION['id'];
 $pClass = "";
 
 $currentPasswordMessage = "";
@@ -11,6 +11,7 @@ $passwordChangedMessage = "";
 $currentPassword = false;
 $newPassword = false;
 $confirmPassword = false;
+$passwordResultHash = '';
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $current_password = isset($_POST['current-password']) ? $_POST['current-password'] : '';
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if (mysqli_num_rows($passwordResult) == 1) {
         $passwordResultRow = mysqli_fetch_assoc($passwordResult);
-        $passwordResultHash = $passwordResultRow['password_hash'];
+        $passwordResultHash = $passwordResultRow['password_hash'] ?? '';
     }
 
     if (password_verify($current_password, $passwordResultHash)) {
@@ -71,10 +72,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 <div class="change-password-container-wrapper">
     <h2>Change Password</h2>
     <div class="change-password-container">
-        <div class="security-img">
+        <div class="design-img">
             <img src="../../images/security-password.png" alt="change password">
         </div>
-        <div class="change-password-field">
+        <div class="change-field">
             <span>
                 <h3>Update Account Password</h3>
                 <p>Update your password to strong password</p>

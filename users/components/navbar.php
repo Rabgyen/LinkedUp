@@ -1,3 +1,13 @@
+<?php
+
+$id = $_SESSION['id'];
+$userSql = "SELECT profile_pic FROM user_info WHERE user_id='$id'";
+$userResult = mysqli_query($conn, $userSql);
+$currentUserData = mysqli_fetch_assoc($userResult);
+$profilePicData = $currentUserData['profile_pic'] ?? "";
+
+?>
+
 <navbar style="height: 100%; width: 100%">
     <div class="nav-items">
         <div class="logo">
@@ -30,7 +40,11 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <div class="profile">
-                    <a href="../pages/profile.php"><img src="../../images/user.jpg" alt="profile image"></a>
+                    <a href="../pages/profile.php"><?php if (!empty($profilePicData)): ?>
+                            <img src="data:image/jpeg;base64,<?= base64_encode($profilePicData) ?>" alt="Profile Picture">
+                        <?php else: ?>
+                            <img src="../../images/default-profile-pic.jpg" alt="Default Profile Picture">
+                        <?php endif; ?></a>
                 </div>
             </div>
         </div>

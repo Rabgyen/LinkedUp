@@ -149,6 +149,7 @@ input{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     outline: none;
+    z-index: 10;
 }
 
 .input-field{
@@ -227,17 +228,17 @@ textarea{
     box-shadow: var(--box-shadow);
 }
 
-.security-img{
+.design-img{
     height: 600px;
     width: 330px;
 }
 
-.security-img img{
+.design-img img{
     height: 100%;
     width: 100%;
 }
 
-.change-password-field{
+.change-field{
     flex: 1;
     padding: 20px;
     display: flex;
@@ -256,7 +257,7 @@ textarea{
     padding: 0 10px;
 }
 
-.change-password-field i{
+.change-field i{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -266,7 +267,66 @@ textarea{
     color: #666;
 }
 
-.change-password-field p{
+.change-field p{
     font-size: var(--sub-text-font);
     color: var(--sub-text-color);
+}
+
+.edit-details-container-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 70%;
+}
+
+.edit-details-container{
+    display: flex;
+    border: var(--light-border);
+    box-shadow: var(--box-shadow);
+}
+
+.details-design-img{
+    background: url('../../images/bg-3.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.details-design-img img{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    box-shadow: 0 0 15px var(--main-theme-color);
+}
+
+.details-design-img p{
+    font-size: var(--sub-text-font);
+    color: var(--sub-text-color);
+}
+
+.input-field-container-wrapper{
+    display: flex;
+    gap: 10px;
+}
+
+.input-field-container-wrapper .input-field-container{
+    flex: 1;
+}
+
+.input-field-details input{
+    width: 100%;
+    height: 40px;
+}
+
+.input-field-details{
+    position: relative;
+    height: fit-content;
+}
+
+.input-field-details i{
+    position: absolute;
+    left: 12px;
+    width: fit-content;
 }

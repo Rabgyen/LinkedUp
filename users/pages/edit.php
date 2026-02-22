@@ -4,37 +4,7 @@ session_start();
 include '../../database/db_connection.php';
 $currentPage = isset($_GET['page']) ? $_GET['page'] : 'editprofile';
 
-// if ($_SERVER['REQUEST_METHOD'] == "POST") {
-//     $id = $_SESSION['id'];
 
-//     $userSql = "SELECT * FROM user_info WHERE user_id='$id'";
-//     $userResult = mysqli_query($conn, $userSql);
-//     $currentUser = mysqli_fetch_assoc($userResult);
-
-//     $full_name = !empty($_POST["full_name"]) ? $_POST["full_name"] : $currentUser['full_name'];
-//     $dob = !empty($_POST['dob']) ? $_POST['dob'] : $currentUser['date_of_birth'];
-//     $country = !empty($_POST['country']) ? $_POST['country'] : $currentUser['country'];
-//     $city = !empty($_POST['city']) ? $_POST['city'] : $currentUser['city'];
-//     $address = !empty($_POST['address']) ? $_POST['address'] : $currentUser['address'];
-//     $phone_number = !empty($_POST['phone_number']) ? $_POST['phone_number'] : $currentUser['phone_number'];
-//     $interest = !empty($_POST['interest']) ? $_POST['interest'] : $currentUser['interests'];
-
-//     $sql = "UPDATE user_info SET full_name = '$full_name', date_of_birth = '$dob', country = '$country', city = '$city', address='$address', phone_number='$phone_number', interests='$interest' WHERE user_id='$id'";
-
-//     if (mysqli_query($conn, $sql)) {
-//         $_SESSION['full_name'] = $full_name;
-//         $_SESSION['dob'] = $dob;
-//         $_SESSION['country'] = $country;
-//         $_SESSION['city'] = $city;
-//         $_SESSION['address'] = $address;
-//         $_SESSION['phone_number'] = $phone_number;
-//         $_SESSION['interest'] = $interest;
-
-//         echo "<p style='color:green;'>Profile Updated Successfully!</p>";
-//     } else {
-//         echo "<p style='color:red;'>Error updating profile: " . mysqli_error($conn) . "</p>";
-//     }
-// }
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +13,9 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'editprofile';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Your Account</title>
     <link rel="stylesheet" href="../style/editStyle.css">
+    <link rel="icon" type="image/png" href="../../images/up-logo.png">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!---Google Fonts--->
@@ -89,17 +60,14 @@ $currentPage = isset($_GET['page']) ? $_GET['page'] : 'editprofile';
                 </a>
             </div>
             <?php
-                if(isset($_GET['page'])){
-                    if($currentPage == 'editprofile'){
-                        include '../components/editProfile.php';
-                    }elseif($currentPage == 'changepassword'){
-                        include '../components/changePassword.php';
-                    }elseif($currentPage =='editdetail'){
-                        include '../components/editDetails.php';
-                    }else{
-                        header("Location: accessDenied.php");
-                    }
-
+                if($currentPage == 'editprofile'){
+                    include '../components/editProfile.php';
+                }elseif($currentPage == 'changepassword'){
+                    include '../components/changePassword.php';
+                }elseif($currentPage == 'editdetail'){
+                    include '../components/editDetails.php';
+                }else{
+                    header("Location: accessDenied.php");
                 }
             ?>
         </div>

@@ -7,19 +7,23 @@ if (!isset($_SESSION["email"])) {
     exit;
 }
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_SESSION['id'];
-    
+
     $sql = "DELETE FROM `user_credentials` WHERE id = '$id'";
-    
-    if(mysqli_query($conn, $sql)){
+
+    if (mysqli_query($conn, $sql)) {
         $_SESSION = [];
         session_destroy();
         header("Location: login.php");
         exit();
     }
-
 }
+$id = $_SESSION['id'];
+$userSql = "SELECT profile_pic FROM user_info WHERE user_id='$id'";
+$userResult = mysqli_query($conn, $userSql);
+$currentUserData = mysqli_fetch_assoc($userResult);
+$profilePicData = $currentUserData['profile_pic'] ?? "";
 
 ?>
 
@@ -32,6 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <title>Profile</title>
     <link rel="stylesheet" href="../style/mainStyle.css">
     <link rel="stylesheet" href="../style/profileStyle.css">
+    
+    <link rel="icon" type="image/png" href="../../images/up-logo.png">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!---Google Fonts--->
@@ -52,7 +58,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <div class="profile-user-bg-img">
                     <img src="../../images/bg-1.jpg" alt="../../images/default-white-bg.jpg">
                     <div class="profile-user-profile-img">
-                        <img src="../../images/user.jpg" alt="">
+                        <?php if (!empty($profilePicData)): ?>
+                            <img src="data:image/jpeg;base64,<?= base64_encode($profilePicData) ?>" alt="Profile Picture">
+                        <?php else: ?>
+                            <img src="../../images/default-profile-pic.jpg" alt="Default Profile Picture">
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -76,7 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         </span>
                     </span>
                     <span style="display: flex; gap: 10px"> <a href="edit.php?page=editprofile&id=<?php echo isset($_SESSION['id']) ? $_SESSION['id'] : '' ?>" class="btn edit-btn"><i class="fa-solid fa-gear"></i>Edit Profile</a>
-                </span>
+                    </span>
                 </div>
                 <div class="profile-detail-container">
                     <div class="profile-detail">
@@ -148,18 +158,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     </main>
     <div class="delete-pop-up" id="delete-pop-up">
         <div class="delete-confirmation-container">
-        <form action="" method="post">
-            <div class="delete-logo">
-                <i class="fa-solid fa-trash"></i>
-            </div>
-            <p style="font-size: 20px; text-align: center;max-width: 250px;">Are you sure you want to delete your account?</p>
-            <p style="color:#8a8c8d;font-size: 14px;"><?php echo $_SESSION['email'] ?></p>
-            <span>
-                <button id="cancelBtn" type="button">Cancel</button>
-                <button id="deleteConfirmBtn" type="submit">Delete Account</button>
-            </span>
-        </form>
-    </div>
+            <form action="" method="post">
+                <div class="delete-logo">
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+                <p style="font-size: 20px; text-align: center;max-width: 250px;">Are you sure you want to delete your account?</p>
+                <p style="color:#8a8c8d;font-size: 14px;"><?php echo $_SESSION['email'] ?></p>
+                <span>
+                    <button id="cancelBtn" type="button">Cancel</button>
+                    <button id="deleteConfirmBtn" type="submit">Delete Account</button>
+                </span>
+            </form>
+        </div>
     </div>
 </body>
 <script>
@@ -167,19 +177,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     const cancelBtn = document.getElementById('cancelBtn');
     const openDelete = document.getElementById('delete-btn');
 
-    if(openDelete){
+    if (openDelete) {
         openDelete.addEventListener('click', (e) => {
             e.preventDefault();
             deletePopUp.classList.add('show');
         });
     }
 
-    if(cancelBtn){
+    if (cancelBtn) {
         cancelBtn.addEventListener('click', (e) => {
             e.preventDefault();
             deletePopUp.classList.remove('show');
         });
     }
-
 </script>
+
 </html>
